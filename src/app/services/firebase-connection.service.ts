@@ -32,25 +32,21 @@ export class  FirebaseConnectionService {
 
   public clientDetails(loginResponse: LoginResponse) {
     // tslint:disable-next-line:max-line-length
-    this.clientURL = this.clientURL.replace('<localId_from_login_response>', loginResponse.localId).replace('<idToken_from_login_response>', loginResponse.idToken);
-    return this.httpClient.get<any>(`${this.clientURL}`);
+    return this.httpClient.get<any>(`${this.clientURL.replace('<localId_from_login_response>', loginResponse.localId).replace('<idToken_from_login_response>', loginResponse.idToken)}`);
   }
 
   public updateClient(loginResponse: LoginResponse, customer: Customer) {
     // tslint:disable-next-line:max-line-length
-    this.clientURL = this.accountListUpdateURL.replace('<localId_from_login_response>', loginResponse.localId).replace('<idToken_from_login_response>', loginResponse.idToken);
-    return this.httpClient.put(`${this.clientURL}`, customer);
+    return this.httpClient.put(`${this.accountListUpdateURL.replace('<localId_from_login_response>', loginResponse.localId).replace('<idToken_from_login_response>', loginResponse.idToken)}`, customer);
   }
 
   public retrieveAccount(loginResponse: LoginResponse, account: AccountDetails) {
     // tslint:disable-next-line:max-line-length
-    this.accountUrl = this.accountUrl.replace('<account_number>', account.accountNumber + '' ).replace('<idToken_from_login_response>', loginResponse.idToken);
-    return this.httpClient.get<AccountDetails>(`${this.accountUrl}`);
+    return this.httpClient.get<AccountDetails>(`${this.accountUrl.replace('<account_number>', account.accountNumber + '' ).replace('<idToken_from_login_response>', loginResponse.idToken)}`);
   }
 
   public updateAccountCreate(loginResponse: LoginResponse, account: AccountDetails) {
     // tslint:disable-next-line:max-line-length
-    this.accountUpdateCreate = this.accountUpdateCreate.replace('<account_number>', account.accountNumber + '').replace('<idToken_from_login_response>', loginResponse.idToken);
-    return this.httpClient.put(`${this.accountUpdateCreate}`, account);
+    return this.httpClient.put(`${this.accountUpdateCreate.replace('<account_number>', account.accountNumber + '').replace('<idToken_from_login_response>', loginResponse.idToken)}`, account);
   }
 }

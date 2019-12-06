@@ -48,12 +48,17 @@ export class HomePage {
 
   getBalances() {
     this.accountNumbers.forEach(accountNumber => {
+
       const details = new AccountDetails();
       details.accountNumber = accountNumber;
       this.api.retrieveAccount(this.loginResponse, details).subscribe((accountResponse => {
+        if (accountResponse == null) {
+          return;
+        }
         const acct = new AccountDetails();
         acct.accountNumber = accountNumber;
-        acct.balance = accountResponse.balance;
+        acct.balance = accountResponse.balance || 0;
+
         this.accountObj.push(acct);
       }));
     });
