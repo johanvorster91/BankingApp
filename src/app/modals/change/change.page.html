@@ -1,0 +1,22 @@
+<ion-content class="ion-padding">
+  <div class="ion-text-center">
+    <h3>{{type}}</h3>
+  </div>
+  <ion-item>
+    <ion-label>
+      AccountNumber:{{account.accountNumber}}
+    </ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label>
+      Balance:{{account.balance}}
+    </ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label>
+      Amount R:
+    </ion-label>
+    <ion-input type="number" value="" [(ngModel)]="amount" id="input"></ion-input>
+  </ion-item>
+  <ion-button expand="block" (click)="changeBalance()">{{type}}</ion-button>
+</ion-content>

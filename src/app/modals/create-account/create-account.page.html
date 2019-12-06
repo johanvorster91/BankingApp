@@ -1,0 +1,12 @@
+<ion-content class="ion-padding">
+  <div class="ion-text-center">
+    <h3>Create Account</h3>
+  </div>
+  <ion-item>
+    <ion-label>
+      Overdraft R:
+    </ion-label>
+    <ion-input type="number" value="" [(ngModel)]="overdraft" id="input"></ion-input>
+  </ion-item>
+  <ion-button expand="block" (click)="createAccount()">Create Account</ion-button>
+</ion-content>
