@@ -15,6 +15,6 @@ import { CreateAccountPage } from './create-account.page';
     IonicModule,
     CreateAccountPageRoutingModule
   ],
-  declarations: [CreateAccountPage]
+  declarations: []
 })
 export class CreateAccountPageModule {}

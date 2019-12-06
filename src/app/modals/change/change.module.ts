@@ -15,6 +15,6 @@ import { ChangePage } from './change.page';
     IonicModule,
     ChangePageRoutingModule
   ],
-  declarations: [ChangePage]
+  declarations: []
 })
 export class ChangePageModule {}

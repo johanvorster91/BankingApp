@@ -2,7 +2,6 @@ import {Component, Input, OnInit} from '@angular/core';
 import {ModalController, ToastController} from '@ionic/angular';
 import {AccountDetails} from '../../models/account-details';
 import {LoginResponse} from '../../models/login-response';
-import {isNumber} from "util";
 import {Customer} from '../../models/customer';
 
 @Component({
