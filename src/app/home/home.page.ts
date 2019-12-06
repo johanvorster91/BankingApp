@@ -26,20 +26,14 @@ export class HomePage {
   clientName: string;
   clientAge: string;
   accountNumbers: number[];
-  accountObj: AccountDetails[];
+  accountObj: any[];
   loginResponse: any;
-  public lunch = {
-    mainCourse: 'steak',
-    desert: 'pudding'
-  };
-  public dinner: string;
 
   getAccounts() {
     this.api.clientDetails(this.loginResponse).subscribe((clientDetails) => {
       this.clientName = clientDetails.accounts.name;
       this.clientAge = clientDetails.accounts.age;
       this.clientDetails = clientDetails.accounts;
-      console.log(this.clientDetails);
       this.accountNumbers = clientDetails.accounts.accounts;
       this.getBalances();
     });
@@ -48,18 +42,14 @@ export class HomePage {
 
   getBalances() {
     this.accountNumbers.forEach(accountNumber => {
-
       const details = new AccountDetails();
       details.accountNumber = accountNumber;
       this.api.retrieveAccount(this.loginResponse, details).subscribe((accountResponse => {
         if (accountResponse == null) {
           return;
         }
-        const acct = new AccountDetails();
-        acct.accountNumber = accountNumber;
-        acct.balance = accountResponse.balance || 0;
-
-        this.accountObj.push(acct);
+        console.log(accountResponse)
+        this.accountObj.push(accountResponse);
       }));
     });
 

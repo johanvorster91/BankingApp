@@ -42,7 +42,7 @@ export class  FirebaseConnectionService {
 
   public retrieveAccount(loginResponse: LoginResponse, account: AccountDetails) {
     // tslint:disable-next-line:max-line-length
-    return this.httpClient.get<AccountDetails>(`${this.accountUrl.replace('<account_number>', account.accountNumber + '' ).replace('<idToken_from_login_response>', loginResponse.idToken)}`);
+    return this.httpClient.get(`${this.accountUrl.replace('<account_number>', account.accountNumber + '' ).replace('<idToken_from_login_response>', loginResponse.idToken)}`);
   }
 
   public updateAccountCreate(loginResponse: LoginResponse, account: AccountDetails) {

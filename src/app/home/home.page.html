@@ -13,8 +13,9 @@
         <ion-item *ngFor="let account of accountObj">
             <ion-card>
                 <ion-card-header>
-                    <ion-card-title> {{account.accountNumber}}</ion-card-title>
-                    <ion-card-subtitle>{{account.balance}}</ion-card-subtitle>
+                    <ion-card-title>Account: {{account.accountNumber}}</ion-card-title>
+                    <ion-card-subtitle>Balance: {{account.balance}}</ion-card-subtitle>
+                    <ion-card-subtitle>Overdraft: {{account.overdraft}}</ion-card-subtitle>
                 </ion-card-header>
 
                 <ion-card-content>
